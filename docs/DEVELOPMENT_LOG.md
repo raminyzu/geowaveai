@@ -91,3 +91,28 @@ The scientific computing environment is being established.
 The first research notebook has been created.
 
 No real seismic datasets or research results have been produced yet.
+
+## 2026-11-03 — Scientific Computing Environment
+
+### Installed and Verified
+- NumPy 2.5.4 — numerical computing.
+- SciPy 1.18.1 — scientific and signal processing.
+- Pandas 3.1.0 — structured data analysis.
+- Matplotlib 3.11.2 — scientific visualization.
+- Jupyter Notebook 7.6.4 — interactive research notebooks.
+- ObsPy 1.5.1 — seismological waveform processing.
+
+### Project Configuration
+- Added pinned scientific library versions to `pyproject.toml`.
+- Successfully installed GeoWaveAI in editable mode using `python -m pip install -e .`.
+- Verified imports for GeoWaveAI and all six scientific libraries.
+- Ran `python -m pip check`; no broken requirements were found.
+
+### Notebook
+- Created `notebooks/01_python_environment_test.ipynb`.
+- Tested basic NumPy calculations.
+- Generated and visualized a synthetic sine wave using Matplotlib.
+
+### Current Status
+The initial scientific Python environment is installed and verified.
+No real seismic dataset has been loaded or analyzed yet.
