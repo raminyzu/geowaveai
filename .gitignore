@@ -3,10 +3,11 @@
 venv/
 env/
 
-# Python cache files
+# Python cache and generated package files
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
 
 # Testing and coverage
 .pytest_cache/
