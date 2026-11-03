@@ -1,0 +1,41 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Raw and processed research data
+data/raw/*
+data/processed/*
+
+# Model files and generated artifacts
+artifacts/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Logs
+*.log
+
+# Editor and operating system files
+.vscode/
+.DS_Store
+Thumbs.db
