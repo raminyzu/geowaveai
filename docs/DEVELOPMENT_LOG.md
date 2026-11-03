@@ -70,3 +70,24 @@ This document records meaningful project setup, implementation, research, and te
 The initial Python project structure and editable package installation are working correctly.
 
 No datasets, signal-processing algorithms, or machine-learning models have been implemented yet.
+
+## 2026-11-03 — Initial Research Notebook
+
+### Completed
+- Created the notebooks directory.
+- Created 01_python_environment_test.ipynb.
+- Prepared the notebook for testing the scientific Python environment.
+- Verified that Jupyter Notebook launches from the project root.
+
+### Scientific Libraries Installed
+- NumPy 2.5.4
+- SciPy 1.18.1
+- Pandas 3.1.0
+- Matplotlib 3.11.2
+- Jupyter Notebook 7.6.4
+
+### Current Status
+The scientific computing environment is being established.
+The first research notebook has been created.
+
+No real seismic datasets or research results have been produced yet.
