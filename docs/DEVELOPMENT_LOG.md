@@ -116,3 +116,76 @@ No real seismic datasets or research results have been produced yet.
 ### Current Status
 The initial scientific Python environment is installed and verified.
 No real seismic dataset has been loaded or analyzed yet.
+
+## 2026-11-19 — DeepSubDAS Real Dataset Exploration
+
+### Completed Work
+
+- Added h5py==3.16.0 to project dependencies.
+- Reinstalled the project in editable mode.
+- Verified h5py installation.
+- Confirmed that pip check reports no broken requirements.
+- Downloaded and verified the DeepSubDAS pilot HDF5 recording.
+- Created the initial dataset documentation in data/README.md.
+- Created and successfully executed Notebook 04.
+
+### Notebook 04
+
+File: notebooks/04_deepsubdas_real_dataset_exploration.ipynb
+
+Topics covered:
+
+1. Scientific library imports.
+2. Project and dataset path detection.
+3. HDF5 structure inspection.
+4. Loading the real DAS recording and annotation masks.
+5. Signal statistical analysis.
+6. Invalid numerical value checks.
+7. Annotation mask statistical analysis.
+8. Mask normalization verification.
+9. Dominant annotation layer analysis.
+10. Raw DAS recording visualization.
+11. Individual annotation layer visualization.
+12. Combined signal and mask visualization.
+13. Dataset MD5 checksum verification.
+14. Documentation of observations and limitations.
+
+### Verified Dataset Properties
+
+- Dataset: DeepSubDAS
+- Format: HDF5
+- Patch shape: (300, 4000)
+- Patch data type: float32
+- Mask shape: (3, 300, 4000)
+- Mask data type: float64
+- Signal values: All finite
+- Mask layers: Sum approximately to 1 at every position.
+- Original dataset checksum: Verified against the recorded official MD5.
+
+### Important Research Limitations
+
+- Sampling rate has not yet been verified.
+- Physical channel spacing has not yet been verified.
+- Physical measurement units have not yet been verified.
+- Exact HDF5 annotation layer meanings and ordering require further verification.
+- The dataset represents submarine DAS recordings and should not automatically be treated as representative of land-based DAS recordings.
+
+### Data Management
+
+- Original HDF5 recording remains unchanged.
+- Raw research data is excluded from Git.
+- Dataset documentation is maintained in data/README.md.
+
+### Current Project Stage
+
+Real DAS dataset exploration completed.
+
+### Next Tasks
+
+1. Verify the DeepSubDAS annotation convention.
+2. Investigate the dataset's physical recording metadata.
+3. Understand the signal's time and spatial dimensions.
+4. Begin real-data signal analysis.
+5. Develop appropriate preprocessing and detection experiments.
+
+No machine learning model has been trained using this dataset at this stage.
