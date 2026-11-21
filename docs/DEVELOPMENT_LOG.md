@@ -7,7 +7,7 @@ This document records meaningful project setup, implementation, research, and te
 
 - **Project:** GeoWaveAI
 - **Research focus:** Weak seismic and microseismic event detection in noisy DAS recordings
-- **Current phase:** Initial project setup
+- **Current phase:** Real DAS dataset characterization and annotation verification
 - **Primary language:** Python
 - **Repository:** https://github.com/raminyzu/geowaveai
 
@@ -220,3 +220,46 @@ No machine learning model has been trained using this dataset at this stage.
 Investigate the original DeepSubDAS annotation convention and verify the meaning of the three HDF5 mask layers.
 
 No original dataset was modified.
+
+## 2026-11-21 — DeepSubDAS Annotation Convention Investigation
+
+### Completed
+
+- Reviewed the official DeepSubDAS supplementary implementation published on Zenodo.
+- Inspected the official 02_run_postprocess.py script.
+- Verified that the script extracts P-wave picks from model output channel 0.
+- Verified that the script extracts S-wave picks from model output channel 1.
+- Examined the use of the third probability layer in the supplementary visualization.
+- Compared the implementation evidence with the three-class definition in the published research paper.
+
+### Findings
+
+The official model output probability ordering is supported as:
+
+- Channel 0: P-wave.
+- Channel 1: S-wave.
+- Channel 2: Remaining third class, consistent with noise under the
+  paper's three-class definition.
+
+### Important Limitation
+
+The inspected supplementary script operates on model output probability maps.
+
+It does not establish how the original HDF5 mask dataset was generated or stored.
+
+Consequently, the model output ordering and original HDF5 mask ordering must remain separate verification questions.
+
+No definitive HDF5 mask-index mapping is claimed at this stage.
+
+### Next Tasks
+
+1. Investigate whether the original HDF5 annotation-generation procedure is publicly available.
+2. Investigate file-level recording metadata.
+3. Begin real DAS signal analysis using numerical channel and sample indices.
+4. Preserve unresolved metadata limitations in all subsequent experiments.
+
+### Data Integrity
+
+- Original HDF5 dataset remains unchanged.
+- No model has been trained.
+- No original research data has been modified.

@@ -96,21 +96,43 @@ The following information remains unresolved:
 3. Gauge length.
 4. Physical measurement units.
 5. Original acquisition and processing history of this particular patch.
-6. Exact ordering of the three HDF5 annotation layers.
+6. Exact ordering of the original HDF5 annotation layers and whether
+   they follow the same ordering as the model output probability maps.
 
 These values must not be invented or assumed.
 
-## 7. Annotation Classes
+## 7. Annotation Classes and Layer Ordering
 
-The associated research paper describes a three-class output consisting of:
+The associated research paper describes a three-class output:
 
 - P-wave
 - S-wave
 - Noise
 
-However, the exact mapping between these classes and mask indices 0, 1, and 2 in our downloaded HDF5 file has not yet been verified.
+The official DeepSubDAS supplementary post-processing script
+(02_run_postprocess.py) provides evidence for the model output ordering:
 
-The mask layers will therefore remain identified by numerical index until the original annotation convention is confirmed.
+- combined_output[0]: P-wave probability
+- combined_output[1]: S-wave probability
+- combined_output[2]: Remaining third probability class, consistent
+  with noise under the paper's three-class definition.
+
+This establishes the ordering of the model's output probability maps.
+
+However, the supplementary script does not document the original
+HDF5 mask-generation or storage procedure.
+
+Therefore, the following distinction must be maintained:
+
+- Model output ordering: P, S, Noise.
+- Original HDF5 mask ordering: Not yet independently verified.
+
+Until the HDF5 annotation-generation convention is confirmed,
+the original mask layers should continue to be referenced numerically
+as mask[0], mask[1], and mask[2].
+
+The model output ordering must not automatically be assumed to
+prove the original HDF5 mask ordering.
 
 ## 8. Research Implications
 
@@ -133,6 +155,7 @@ The distinction between submarine and land-based DAS recordings must also be mai
 3. DeepSubDAS supplementary implementation and model resources, Zenodo.
 
    https://zenodo.org/records/19002976
+
 
 ## 10. Current Status
 
