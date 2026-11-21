@@ -7,7 +7,7 @@ This document records meaningful project setup, implementation, research, and te
 
 - **Project:** GeoWaveAI
 - **Research focus:** Weak seismic and microseismic event detection in noisy DAS recordings
-- **Current phase:** Real DAS dataset characterization and annotation verification
+- **Current phase:** Real DAS dataset characterization and signal analysis
 - **Primary language:** Python
 - **Repository:** https://github.com/raminyzu/geowaveai
 
@@ -263,3 +263,84 @@ No definitive HDF5 mask-index mapping is claimed at this stage.
 - Original HDF5 dataset remains unchanged.
 - No model has been trained.
 - No original research data has been modified.
+
+
+## 2026-11-21 ? Real DAS Signal Analysis
+
+### Notebook
+
+File: notebooks/05_real_das_signal_analysis.ipynb
+
+### Completed
+
+- Created the fifth research notebook for real DAS waveform analysis.
+- Loaded the original DeepSubDAS pilot HDF5 recording.
+- Verified the waveform dimensions and numerical validity.
+- Calculated overall waveform statistics.
+- Visualized the complete DAS recording.
+- Examined five systematically selected individual channels.
+- Calculated statistical measurements for all 300 channels.
+- Compared channel standard deviations and RMS amplitudes.
+- Examined waveform amplitude distributions.
+- Calculated mean absolute amplitude and RMS profiles across sample indices.
+- Identified sample indices exceeding the 99th percentile RMS threshold.
+- Ranked channels according to RMS amplitude.
+
+### Execution Verification
+
+- Total notebook cells: 34.
+- Code cells: 15.
+- Successfully executed code cells: 15.
+- Recorded execution errors: 0.
+- Total waveform samples analyzed: 1,200,000.
+
+### Observed Numerical Results
+
+- Patch shape: (300, 4000).
+- Patch data type: float32.
+- Minimum amplitude: approximately -11.866403.
+- Maximum amplitude: approximately 11.224660.
+- Mean amplitude: approximately -0.000765.
+- Overall standard deviation: approximately 1.274881.
+- All waveform values are finite.
+- No NaN or infinite values were detected.
+
+### Channel Analysis
+
+- Minimum channel standard deviation: approximately 0.939300.
+- Maximum channel standard deviation: approximately 1.441385.
+- Minimum channel RMS: approximately 0.939300.
+- Maximum channel RMS: approximately 1.441429.
+- Channel 250 has the highest observed RMS amplitude, approximately 1.441429.
+
+### High-Amplitude Sample Investigation
+
+- 99th percentile RMS threshold: approximately 2.562587.
+- 40 sample indices exceeded this threshold.
+- Many flagged indices occurred between 2493 and 2551.
+- Additional flagged indices occurred later in the recording, including around 3161.
+
+These are amplitude-based observations only. They do not establish confirmed earthquake events or P/S phase arrivals.
+
+### Research Limitations
+
+- Individual file sampling frequency remains unverified.
+- Physical channel spacing and gauge length remain unverified.
+- Physical measurement units remain unverified.
+- Original HDF5 annotation layer ordering remains unresolved.
+- No frequency values in Hz have been calculated.
+- No confirmed seismic events have been identified.
+- No filtering, event detection, or model training was performed.
+
+### Data Integrity
+
+- Original HDF5 recording remains unchanged.
+- Analysis was performed on data loaded into memory.
+- Raw research data remains excluded from Git.
+
+### Next Tasks
+
+1. Continue investigating file-level sampling and spatial metadata.
+2. Review the real waveform observations before selecting further analysis methods.
+3. Establish a defensible sampling frequency before calculating physical frequency values.
+4. Perform frequency-domain analysis only after the sampling assumptions are documented.
