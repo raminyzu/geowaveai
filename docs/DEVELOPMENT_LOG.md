@@ -189,3 +189,34 @@ Real DAS dataset exploration completed.
 5. Develop appropriate preprocessing and detection experiments.
 
 No machine learning model has been trained using this dataset at this stage.
+## 2026-11-21 — DeepSubDAS Metadata Investigation
+
+### Completed
+
+- Created docs/DEEPSUBDAS_DATASET_METADATA.md.
+- Reviewed the official DeepSubDAS dataset record.
+- Documented information reported in the associated research paper.
+- Compared the reported dataset preparation parameters with our downloaded pilot file.
+- Documented the HDF5 structure and previously verified numerical properties.
+- Identified metadata that still requires file-level verification.
+
+### Important Findings
+
+- Pilot recording contains 300 channels and 4000 samples.
+- The associated paper reports 100 Hz resampling and 40-second waveform segments.
+- The paper reports training patches containing 200–500 channels.
+- The paper reports 1–20 Hz bandpass filtering during its training-data preparation.
+
+### Unresolved Questions
+
+- Exact sampling frequency of our individual HDF5 file.
+- Physical channel spacing and gauge length.
+- Physical measurement units.
+- Original preprocessing history.
+- Exact annotation layer ordering.
+
+### Next Task
+
+Investigate the original DeepSubDAS annotation convention and verify the meaning of the three HDF5 mask layers.
+
+No original dataset was modified.
